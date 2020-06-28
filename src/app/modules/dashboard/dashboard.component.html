@@ -1,0 +1,63 @@
+<div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px" 
+    fxLayoutGap.xs="0">
+        <div fxFlex=35>
+            <h6>Doughnut chart</h6>
+            <canvas baseChart
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"></canvas>
+          </div> 
+        <div fxFlex=35>
+            <h6>Pie chart</h6>
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"></canvas>
+          </div>
+          <div fxFlex=35>
+           <h6>Line Graph </h6>
+            <canvas baseChart 
+             [data]="lineChartData" 
+             [labels]="lineChartLabels"
+             [chartType]='lineChartType'>
+            </canvas>
+        </div>    
+</div>  
+<div class="container"
+    fxLayout="col"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
+   <div fxFlex=55>
+       <h6>Bar Graph</h6>
+            <canvas baseChart 
+             [data]="barChartData" 
+             [labels]="barChartLabels"
+             [chartType]='barChartType'>
+            </canvas>  
+   </div>
+   
+   <div fxFlex=40>
+       <h6>Table</h6>
+       <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="sales">
+          <mat-header-cell *matHeaderCellDef> Sales </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.sales}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="value">
+          <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+   </div>    
+</div>    
+
+
+
